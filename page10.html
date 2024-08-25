@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sports Equipment Booking System - Student Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #fff;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      margin-bottom: 148px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #555;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 style="font-size: xx-large;">Sports Equipment Booking System - Student Details</h1>
+  </header>
+  <div style="padding: 10px; background-color: rgb(196, 190, 190);">
+    <a href="page10.html" style="padding: 10px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: black;">Student Details</a>
+    <a href="page11.html" style="padding: 10px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: black;">Booking Status</a>
+    <a href="page12.html" style="padding: 10px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: black;">Equipment Availability</a>
+    <a href="page9.html"  style="padding: 10px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: black;">Log Out</a>
+  </div>
+  <div class="container">
+    <h2>Book Sports Equipment</h2>
+    <form id="bookingForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      
+      <label for="sport">Sport:</label>
+      <select id="sport" name="sport" onchange="updateEquipmentOptions()" required>
+        <option value="">Select sport</option>
+        <option value="football">Football</option>
+        <option value="basketball">Basketball</option>
+        <option value="tennis">Tennis</option>
+        <option value="cricket">Cricket</option>
+      </select>
+      
+      <label for="equipment">Equipment:</label>
+      <select id="equipment" name="equipment" required>
+        <option value="">Select equipment</option>
+      </select>
+      
+      <label for="equipment">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+      
+      <label for="date">Booking Date:</label>
+      <input type="date" id="date" name="date" required>
+      <input type="submit" value="Book">
+    </form>
+  </div>
+
+  <footer>
+    <h2>
+        <p style="padding: 50px; padding-left: 600px; background-color:#333; color: white;">
+            Contact us: sportsfaculty@isquareit.edu.in | Phone no.: 1800-256-5526
+        </p>
+    </h2>
+  </footer>
+
+  <script>
+    function updateEquipmentOptions() {
+      const sportSelect = document.getElementById('sport');
+      const selectedSport = sportSelect.value;
+
+      const equipmentSelect = document.getElementById('equipment');
+
+      equipmentSelect.innerHTML = '';
+
+      if (selectedSport === 'football') {
+        const footballOptions = ['Football', 'Jersey', 'Shin Guards', 'Goalkeeper Gloves'];
+        addOptions(equipmentSelect, footballOptions);
+      } else if (selectedSport === 'basketball') {
+        const basketballOptions = ['Basketball', 'Jersey', 'Basketball Shoes'];
+        addOptions(equipmentSelect, basketballOptions);
+      } else if (selectedSport === 'tennis') {
+        const tennisOptions = ['Tennis Racket', 'Tennis Balls', 'Tennis Shoes'];
+        addOptions(equipmentSelect, tennisOptions);
+      } else if (selectedSport === 'cricket') {
+        const cricketOptions = ['Cricket Bat', 'Cricket Ball', 'Stumps', 'Pads', 'Helmet'];
+        addOptions(equipmentSelect, cricketOptions);
+      }
+    }
+    function addOptions(selectElement, optionsArray) {
+      for (let i = 0; i < optionsArray.length; i++) {
+        const option = document.createElement('option');
+        option.value = optionsArray[i];
+        option.text = optionsArray[i];
+        selectElement.appendChild(option);
+      }
+    }
+    function handleFormSubmit(event) {
+      event.preventDefault(); 
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const equipment = document.getElementById('equipment').value;
+      const quantity = document.getElementById('quantity').value;
+      const date = document.getElementById('date').value;
+
+      const formData = {
+        name: name,
+        email: email,
+        equipment: equipment,
+        quantity: quantity,
+        date: date
+      };
+
+      let bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+
+      bookings.push(formData);
+
+      localStorage.setItem('bookings', JSON.stringify(bookings));
+
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('equipment').value = '';
+      document.getElementById('quantity').value = '1';
+      document.getElementById('date').value = '';
+    }
+    
+    const form = document.getElementById('bookingForm');
+    form.addEventListener('submit', handleFormSubmit);
+  </script>
+</body>
+</html>

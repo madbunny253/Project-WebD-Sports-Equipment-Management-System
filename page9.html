@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      padding: 20px;
+      text-align: center;
+      height: 37px;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      color: #fff;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 50px auto 0; /* Added margin to move the container downwards */
+      margin-bottom: 450px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .container input[type="email"],
+    .container input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+
+    .container input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+
+    .container input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .error {
+      color: red;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <h1 style="font-size: xx-large;">Sports Equipment Booking System</h1>
+    </header>
+  <div class="container">
+        <h2>Login</h2>
+    <form id="loginForm">
+      <div class="error" id="error"></div>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <input type="submit" value="Login">
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get the values from the input fields
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+
+      // Perform your login logic here (e.g., sending a request to the server for authentication)
+      // For simplicity, we'll just display an error message if email or password is empty
+      var desiredEmail = "admin@i2it.com";
+      var desiredPassword = "sportsfaculty";
+
+      if (email === desiredEmail && password === desiredPassword) {
+        document.getElementById("error").textContent = ""; // Clear the error message
+        alert("Login successful!");
+        window.location.href = "second-page.html"; // Redirect to the second page
+      } else {
+        document.getElementById("error").textContent = "Invalid email or password.";
+      }
+      window.location.href = "page10.html"
+    });
+  </script>
+  <footer>
+    <h2>
+        <p style="padding: 50px; padding-left: 600px; background-color:#333; color: white;">
+            Contact us: sportsfaculty@isquareit.edu.in | Phone no.: 1800-256-5526
+        </p>
+    </h2>
+    
+  </footer>
+</body>
+</html>
