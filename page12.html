@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sports Equipment Booking System - Equipment Availability</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #fff;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th,
+    td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    input[type="number"] {
+      width: 60px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    input[type="number"]:focus {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 style="font-size: xx-large;">Sports Equipment Booking System - Equipment Availability</h1>
+  </header>
+  <div style="padding: 10px; background-color: rgb(196, 190, 190);">
+    <a href="page10.html" style="padding: 10px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: black;">Student Details</a>
+    <a href="page11.html" style="padding: 10px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: black;">Booking Status</a>
+    <a href="page12.html" style="padding: 10px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: black;">Equipment Availability</a>
+    <a href="index.html"  style="padding: 10px; font-family: Verdana, Geneva, Tahoma, sans-serif; color: black;">Log Out</a>
+  </div>
+  <div class="container">
+    <h2>Equipment Availability</h2>
+    <table id="equipmentAvailability">
+      <tr>
+        <th>Equipment Name</th>
+        <th>Quantity</th>
+      </tr>
+      <tr>
+        <td>Football</td>
+        <td><input type="number" id="footballQuantity" value="10" min="0"></td>
+      </tr>
+      <tr>
+        <td>Jersey</td>
+        <td><input type="number" id="jerseyQuantity" value="20" min="0"></td>
+      </tr>
+      <tr>
+        <td>Shin Guards</td>
+        <td><input type="number" id="shinGuardsQuantity" value="15" min="0"></td>
+      </tr>
+      <tr>
+        <td>Goalkeeper Gloves</td>
+        <td><input type="number" id="glovesQuantity" value="8" min="0"></td>
+      </tr>
+      <tr>
+        <td>Basketball</td>
+        <td><input type="number" id="basketballQuantity" value="12" min="0"></td>
+      </tr>
+      <tr>
+        <td>Basketball Shoes</td>
+        <td><input type="number" id="basketballShoesQuantity" value="10" min="0"></td>
+      </tr>
+      <tr>
+        <td>Tennis Racket</td>
+        <td><input type="number" id="tennisRacketQuantity" value="5" min="0"></td>
+      </tr>
+      <tr>
+        <td>Tennis Balls<td><input type="number" id="tennisBallsQuantity" value="20" min="0"></td>
+    </tr>
+    <tr>
+      <td>Tennis Shoes</td>
+      <td><input type="number" id="tennisShoesQuantity" value="15" min="0"></td>
+    </tr>
+    <tr>
+      <td>Cricket Bat</td>
+      <td><input type="number" id="cricketBatQuantity" value="10" min="0"></td>
+    </tr>
+    <tr>
+      <td>Cricket Ball</td>
+      <td><input type="number" id="cricketBallQuantity" value="30" min="0"></td>
+    </tr>
+    <tr>
+      <td>Stumps</td>
+      <td><input type="number" id="stumpsQuantity" value="6" min="0"></td>
+    </tr>
+    <tr>
+      <td>Pads</td>
+      <td><input type="number" id="padsQuantity" value="15" min="0"></td>
+    </tr>
+    <tr>
+      <td>Helmet</td>
+      <td><input type="number" id="helmetQuantity" value="8" min="0"></td>
+    </tr>
+  </table>
+</div>
+<footer>
+    <h2>
+      <p style="padding: 50px; padding-left: 600px; background-color:#333; color: white;">
+        Contact us: sportsfaculty@isquareit.edu.in | Phone no.: 1800-256-5526
+      </p>
+    </h2>
+  </footer>
+
+  <script>
+    // Function to save the updated equipment quantities to localStorage
+    function saveEquipmentQuantities() {
+      localStorage.setItem('footballQuantity', document.getElementById('footballQuantity').value);
+      localStorage.setItem('jerseyQuantity', document.getElementById('jerseyQuantity').value);
+      localStorage.setItem('shinGuardsQuantity', document.getElementById('shinGuardsQuantity').value);
+      localStorage.setItem('glovesQuantity', document.getElementById('glovesQuantity').value);
+      localStorage.setItem('basketballQuantity', document.getElementById('basketballQuantity').value);
+      localStorage.setItem('basketballShoesQuantity', document.getElementById('basketballShoesQuantity').value);
+      localStorage.setItem('tennisRacketQuantity', document.getElementById('tennisRacketQuantity').value);
+      localStorage.setItem('tennisBallsQuantity', document.getElementById('tennisBallsQuantity').value);
+      localStorage.setItem('tennisShoesQuantity', document.getElementById('tennisShoesQuantity').value);
+      localStorage.setItem('cricketBatQuantity', document.getElementById('cricketBatQuantity').value);
+      localStorage.setItem('cricketBallQuantity', document.getElementById('cricketBallQuantity').value);
+      localStorage.setItem('stumpsQuantity', document.getElementById('stumpsQuantity').value);
+      localStorage.setItem('padsQuantity', document.getElementById('padsQuantity').value);
+      localStorage.setItem('helmetQuantity', document.getElementById('helmetQuantity').value);
+    }
+
+    // Function to retrieve the saved equipment quantities from localStorage
+    function retrieveEquipmentQuantities() {
+      document.getElementById('footballQuantity').value = localStorage.getItem('footballQuantity');
+      document.getElementById('jerseyQuantity').value = localStorage.getItem('jerseyQuantity');
+      document.getElementById('shinGuardsQuantity').value = localStorage.getItem('shinGuardsQuantity');
+      document.getElementById('glovesQuantity').value = localStorage.getItem('glovesQuantity');
+      document.getElementById('basketballQuantity').value = localStorage.getItem('basketballQuantity');
+      document.getElementById('basketballShoesQuantity').value = localStorage.getItem('basketballShoesQuantity');
+      document.getElementById('tennisRacketQuantity').value = localStorage.getItem('tennisRacketQuantity');
+      document.getElementById('tennisBallsQuantity').value = localStorage.getItem('tennisBallsQuantity');
+      document.getElementById('tennisShoesQuantity').value = localStorage.getItem('tennisShoesQuantity');
+      document.getElementById('cricketBatQuantity').value = localStorage.getItem('cricketBatQuantity');
+      document.getElementById('cricketBallQuantity').value = localStorage.getItem('cricketBallQuantity');
+      document.getElementById('stumpsQuantity').value = localStorage.getItem('stumpsQuantity');
+      document.getElementById('padsQuantity').value = localStorage.getItem('padsQuantity');
+      document.getElementById('helmetQuantity').value = localStorage.getItem('helmetQuantity');
+    }
+
+    // Event listener to save the equipment quantities when the input values change
+    document.querySelectorAll('input[type="number"]').forEach(function(input) {
+      input.addEventListener('change', saveEquipmentQuantities);
+    });
+
+    // Retrieve the saved equipment quantities when the page loads
+    window.addEventListener('load', retrieveEquipmentQuantities);
+  </script>
+</body>
+</html>
+
+
+</body>
+</html>
+
+       
